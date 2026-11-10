@@ -22,7 +22,7 @@ window.wrapped = {
     songTitle: "James — Laufey",
     spotifyCode: "laufey-james-spotify.png", // Filename of the Spotify code image in photos/.
     memory: "",
-    photo: "",
+    photo: "laufey-typical-of-me.png",
     colors: ["#8A9378", "#342119", "#F8D6DE"],
   },
   favorites: {
