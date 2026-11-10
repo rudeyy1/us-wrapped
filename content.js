@@ -40,9 +40,9 @@ window.wrapped = {
     enabled: true, // Set to false to remove the entire slide.
     title: "My Favorite Photo(s)",
     photos: [
-      { photo: "", caption: "" },
-      { photo: "", caption: "" },
-      { photo: "", caption: "" },
+      { photo: "Photo1.JPEG", caption: "" },
+      { photo: "Photo2.JPEG", caption: "" },
+      { photo: "Photo3-web.jpg", caption: "" },
     ],
     colors: ["#49302A", "#EBC9C7", "#B7C09F"],
   },
