@@ -19,8 +19,8 @@ window.wrapped = {
   },
   song: {
     title: "That One Song",
-    songTitle: "",
-    spotifyCode: "", // Filename of the Spotify code image in photos/.
+    songTitle: "James — Laufey",
+    spotifyCode: "laufey-james-spotify.png", // Filename of the Spotify code image in photos/.
     memory: "",
     photo: "",
     colors: ["#8A9378", "#342119", "#F8D6DE"],
