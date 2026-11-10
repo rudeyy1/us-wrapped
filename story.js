@@ -114,16 +114,28 @@ function render(moveFocus = true) {
       break;
     }
     case "song": {
-      const layout = element("div", "reveal-layout song-layout");
-      const media = element("div", "song-media");
-      media.append(
-        photoSlot(content.photo, "Song photo"),
+      const layout = element("div", "song-feature");
+      const screen = element("div", "song-screen");
+      if (content.video) {
+        const video = element("video", "song-video");
+        video.src = "photos/" + encodeURIComponent(content.video);
+        video.controls = true;
+        video.playsInline = true;
+        video.preload = "metadata";
+        video.setAttribute("aria-label", "Movie for That One Song");
+        screen.append(video);
+      }
+      const details = element("div", "song-details");
+      const album = element("div", "song-album");
+      const frame = element("div", "song-frame");
+      frame.append(
+        photoSlot(content.photo, "Album cover"),
         photoSlot(content.spotifyCode, "Spotify code", true),
       );
-      const writing = element("div", "writing-space");
-      appendText(writing, "subtitle", content.songTitle);
-      appendText(writing, "copy", content.memory);
-      layout.append(media, writing);
+      album.append(frame);
+      appendText(album, "song-track", content.songTitle);
+      details.append(album, element("div", "copy writing-space song-note", content.memory));
+      layout.append(screen, details);
       copy.append(layout);
       break;
     }

@@ -21,6 +21,7 @@ window.wrapped = {
   song: {
     title: "That One Song",
     songTitle: "James — Laufey",
+    video: "ddd.MOV",
     spotifyCode: "laufey-james-spotify.png", // Filename of the Spotify code image in photos/.
     memory: "",
     photo: "laufey-typical-of-me.png",
