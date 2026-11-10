@@ -31,7 +31,7 @@ function appendText(parent, className, text) {
 function appendPhoto(parent, filename, description) {
   if (!filename) return;
   const photo = element("img", "photo");
-  photo.src = "photos/" + encodeURIComponent(filename);
+  photo.src = "photos/" + filename.split("/").map(encodeURIComponent).join("/");
   photo.alt = description;
   parent.append(photo);
 }
@@ -62,9 +62,13 @@ function render(moveFocus = true) {
   const isFront = revealIndex < 0 && key !== "cover";
   const hasCustomLayout = !isFront && ["song", "favorites", "gallery", "madeBetter", "nextYear"].includes(key);
   const panel = element("section", isFront ? "panel front" : hasCustomLayout ? "panel detail" : "panel");
+  if (key === "madeBetter") panel.classList.add("sleep-panel");
+  if (key === "favorites" && !isFront) panel.classList.add("memory-panel");
   const body = element("div", "panel-body");
   const copy = element("div", "panel-copy");
-  const heading = element("h1", "", content.title);
+  const heading = element("h1", "", key === "favorites" && !isFront
+    ? content.memories[revealIndex].title || content.title
+    : content.title);
   heading.tabIndex = -1;
   const marker = key === "favorites" && revealIndex >= 0
     ? `Memory ${revealIndex + 1} / ${content.memories.length}`
@@ -141,15 +145,14 @@ function render(moveFocus = true) {
     }
     case "favorites": {
       const memory = content.memories[revealIndex];
-      const layout = element("div", "reveal-layout memory-layout");
-      const photos = element("div", "memory-photos");
-      photos.append(
-        photoSlot(memory.photo, "Photo 1"),
-        photoSlot(memory.secondPhoto, "Photo 2"),
-      );
-      layout.append(photos, element("div", "copy writing-space memory-note", memory.text));
-      copy.append(layout);
-      appendText(copy, "memory-footnote", content.footnote);
+      const layouts = ["festive", "skip", "april"];
+      const photos = element("div", "memory-showcase " + (layouts[revealIndex] ?? ""));
+      const names = memory.photos ?? [memory.photo, memory.secondPhoto].filter(Boolean);
+      for (const [index, name] of names.entries()) {
+        const filename = memory.folder ? memory.folder + "/" + name : name;
+        photos.append(photoSlot(filename, (memory.title || content.title) + ", photo " + (index + 1)));
+      }
+      copy.append(photos);
       break;
     }
     case "gallery": {

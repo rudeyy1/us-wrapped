@@ -29,11 +29,10 @@ window.wrapped = {
   },
   favorites: {
     title: "Three Favorites",
-    footnote: "(from this year)",
     memories: [
-      { text: "", photo: "", secondPhoto: "" },
-      { text: "", photo: "", secondPhoto: "" },
-      { text: "", photo: "", secondPhoto: "" },
+      { title: "Christmas Eve + New Year’s", folder: "christmas-new-years", photos: [] },
+      { title: "Senior Skip", folder: "senior-skip", photos: [] },
+      { title: "April 11", folder: "april-11", photos: [] },
     ],
     colors: ["#EBC9C7", "#614035", "#8A9378"],
   },
@@ -50,7 +49,7 @@ window.wrapped = {
   madeBetter: {
     title: "Something You Made Better",
     note: "",
-    colors: ["#8A9378", "#342119", "#F8D6DE"],
+    colors: ["#101B39", "#FFF0BC", "#F6D98D"],
   },
   nextYear: {
     title: "Coming Up Next",
