@@ -221,3 +221,14 @@ button:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
 @media (max-width: 900px) {
   .gallery-item .photo { max-height: 68svh; }
 }
+
+.panel-body:has(.gallery-grid) { grid-template-columns: minmax(0, 1fr); }
+
+@media (min-width: 901px) and (min-aspect-ratio: 16/10) {
+  .gallery-grid {
+    grid-template-columns: minmax(0, 1fr) repeat(2, minmax(0, 1fr));
+    max-width: none;
+  }
+  .gallery-item:first-child { grid-row: auto; }
+  .gallery-item .photo { max-height: var(--gallery-height); }
+}
