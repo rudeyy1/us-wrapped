@@ -95,7 +95,19 @@ function render(moveFocus = true) {
       if (content.longestCall) rows.push(["Longest call", content.longestCall]);
       for (const [label, value] of rows) {
         const stat = element("div", "stat");
-        stat.append(element("dt", "", label), element("dd", "", value));
+        const result = element("dd", "stat-value");
+        if (value) {
+          const reveal = element("button", "stat-reveal", "Reveal");
+          reveal.type = "button";
+          reveal.setAttribute("aria-label", `Reveal ${label.toLowerCase()}`);
+          reveal.addEventListener("click", () => {
+            result.textContent = value;
+            result.tabIndex = -1;
+            result.focus();
+          });
+          result.append(reveal);
+        }
+        stat.append(element("dt", "", label), result);
         stats.append(stat);
       }
       copy.append(stats);
