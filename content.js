@@ -42,7 +42,7 @@ window.wrapped = {
     photos: [
       { photo: "Photo1.JPEG", caption: "" },
       { photo: "Photo2.JPEG", caption: "" },
-      { photo: "Photo3-web.jpg", caption: "" },
+      { photo: "Photo3 (1).jpeg", caption: "" },
     ],
     colors: ["#49302A", "#EBC9C7", "#B7C09F"],
   },
