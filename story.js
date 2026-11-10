@@ -137,7 +137,10 @@ function render(moveFocus = true) {
         photoSlot(content.spotifyCode, "Spotify code", true),
       );
       album.append(frame);
-      appendText(album, "song-track", content.songTitle);
+      const side = element("div", "song-side");
+      if (content.sidePhoto) side.append(photoSlot(content.sidePhoto, "James car photo"));
+      appendText(side, "song-track", content.songTitle);
+      album.append(side);
       details.append(album, element("div", "copy writing-space song-note", content.memory));
       layout.append(screen, details);
       copy.append(layout);

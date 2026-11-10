@@ -22,6 +22,7 @@ window.wrapped = {
     title: "That One Song",
     songTitle: "James — Laufey",
     video: "ddd.MOV",
+    sidePhoto: "JamesCar.JPEG",
     spotifyCode: "laufey-james-spotify.png", // Filename of the Spotify code image in photos/.
     memory: "",
     photo: "laufey-typical-of-me.png",
@@ -30,9 +31,9 @@ window.wrapped = {
   favorites: {
     title: "Three Favorites",
     memories: [
-      { title: "Christmas Eve + New Year’s", folder: "christmas-new-years", photos: [] },
-      { title: "Senior Skip", folder: "senior-skip", photos: [] },
-      { title: "April 11", folder: "april-11", photos: [] },
+      { title: "Christmas Eve + New Year’s", folder: "christmas-new-years", photos: ["MirrorChristmas.JPG"," NewYearsChristmas.jpeg","GingerChristmas.JPG"] },
+      { title: "Senior Skip", folder: "senior-skip", photos: ["CarBeachSeniorSkip.JPG","BeachSeniorSkip.JPEG","Beach2SeniorSkip.JPEG"] },
+      { title: "April 11", folder: "april-11", photos: ["AprilBreakfasg.jpeg","AprilStreet.JPEG","WilsonApril.JPEG"] },
     ],
     colors: ["#EBC9C7", "#614035", "#8A9378"],
   },
