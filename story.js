@@ -90,8 +90,9 @@ function render(moveFocus = true) {
         ["Total call time", content.totalCallTime],
         ["Texts sent", content.textsSent],
         ["Longest time spent apart", content.longestApart],
-        ["Longest call", content.longestCall],
+        ["Average texts per day", content.averageTextsPerDay],
       ];
+      if (content.longestCall) rows.push(["Longest call", content.longestCall]);
       for (const [label, value] of rows) {
         const stat = element("div", "stat");
         stat.append(element("dt", "", label), element("dd", "", value));

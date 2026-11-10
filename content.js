@@ -11,9 +11,10 @@ window.wrapped = {
   },
   numbers: {
     title: "By the Numbers",
-    totalCallTime: "",
-    textsSent: "",
-    longestApart: "",
+    totalCallTime: "2,128 hours",
+    textsSent: "28,091",
+    averageTextsPerDay: "78",
+    longestApart: "67 days",
     longestCall: "",
     colors: ["#49302A", "#EBC9C7", "#B7C09F"],
   },
