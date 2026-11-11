@@ -345,15 +345,21 @@ button:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
   transform: none;
   opacity: .82;
 }
-.sleep-panel .writing-space {
+.sleep-reveal {
   display: grid;
-  place-items: center;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1rem, 4vw, 4rem);
+}
+.panel.sleep-panel .sleep-reveal h1 {
+  font-size: clamp(3.25rem, 8vw, 8rem);
+}
+.sleep-reveal .writing-space {
   min-height: clamp(8rem, 20vh, 12rem);
   background: var(--background);
-  text-align: center;
-  font-size: clamp(2.75rem, 7vw, 6.75rem);
-  font-weight: 850;
-  line-height: 1;
+}
+@media (max-width: 720px) {
+  .sleep-reveal { grid-template-columns: 1fr; }
 }
 @media (max-width: 680px) {
   .panel.sleep-panel::before { opacity: .45; }

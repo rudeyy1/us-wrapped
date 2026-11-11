@@ -49,7 +49,8 @@ window.wrapped = {
   },
   madeBetter: {
     title: "Something You Made Better",
-    note: "Sleeping!!",
+    revealTitle: "Sleeping!!",
+    note: "",
     colors: ["#101B39", "#FFF0BC", "#F6D98D"],
   },
   nextYear: {

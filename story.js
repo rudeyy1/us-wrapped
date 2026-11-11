@@ -66,9 +66,10 @@ function render(moveFocus = true) {
   if (key === "favorites" && !isFront) panel.classList.add("memory-panel");
   const body = element("div", "panel-body");
   const copy = element("div", "panel-copy");
-  const heading = element("h1", "", key === "favorites" && !isFront
-    ? content.memories[revealIndex].title || content.title
-    : content.title);
+  let title = content.title;
+  if (!isFront && key === "favorites") title = content.memories[revealIndex].title || title;
+  if (!isFront && key === "madeBetter") title = content.revealTitle || title;
+  const heading = element("h1", "", title);
   heading.tabIndex = -1;
   const marker = key === "favorites" && revealIndex >= 0
     ? `Memory ${revealIndex + 1} / ${content.memories.length}`
@@ -173,9 +174,12 @@ function render(moveFocus = true) {
       copy.append(gallery);
       break;
     }
-    case "madeBetter":
-      copy.append(element("div", "copy writing-space teaser", content.note));
+    case "madeBetter": {
+      const reveal = element("div", "sleep-reveal");
+      reveal.append(heading, element("div", "copy writing-space", content.note));
+      copy.append(reveal);
       break;
+    }
     case "nextYear":
       appendText(copy, "subtitle", content.subtitle);
       copy.append(element("div", "copy writing-space teaser", content.idea));
