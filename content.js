@@ -49,7 +49,7 @@ window.wrapped = {
   },
   madeBetter: {
     title: "Something You Made Better",
-    note: "",
+    note: "Sleeping!!",
     colors: ["#101B39", "#FFF0BC", "#F6D98D"],
   },
   nextYear: {

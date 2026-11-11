@@ -345,7 +345,16 @@ button:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
   transform: none;
   opacity: .82;
 }
-.sleep-panel .writing-space { background: var(--background); }
+.sleep-panel .writing-space {
+  display: grid;
+  place-items: center;
+  min-height: clamp(8rem, 20vh, 12rem);
+  background: var(--background);
+  text-align: center;
+  font-size: clamp(2.75rem, 7vw, 6.75rem);
+  font-weight: 850;
+  line-height: 1;
+}
 @media (max-width: 680px) {
   .panel.sleep-panel::before { opacity: .45; }
 }
