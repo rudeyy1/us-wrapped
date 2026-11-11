@@ -187,14 +187,25 @@ function render(moveFocus = true) {
       links.setAttribute("viewBox", "0 0 100 100");
       links.setAttribute("preserveAspectRatio", "none");
       links.setAttribute("aria-hidden", "true");
-      const heart = element("span", "plans-heart", "♥");
-      heart.setAttribute("aria-hidden", "true");
+      const hub = element("span", "plans-hub", "Together");
       const plans = element("ul", "next-plans");
       plans.setAttribute("role", "list");
-      const positions = [
-        [24, 9], [50, 9], [76, 9], [88, 25], [89, 43], [89, 62], [86, 80],
-        [74, 92], [50, 92], [25, 92], [12, 74], [11, 53], [12, 31],
-      ];
+      const columns = 7;
+      const minimumRows = Math.ceil((content.plans.length + 1) / columns);
+      const rows = Math.max(3, minimumRows + (minimumRows % 2 === 0 ? 1 : 0));
+      const center = Math.floor(rows / 2);
+      const positions = [];
+      for (let row = 0; row < rows; row += 1) {
+        const capacity = row === center ? columns - 1 : columns;
+        const count = Math.min(capacity, content.plans.length - positions.length);
+        const y = 8 + (84 * row) / (rows - 1);
+        for (let column = 0; column < count; column += 1) {
+          const x = row === center
+            ? ((column + (column >= capacity / 2 ? 1 : 0) + .5) * 100) / columns
+            : ((column + .5) * 100) / count;
+          positions.push([x, y]);
+        }
+      }
       for (const [index, plan] of content.plans.entries()) {
         const [x, y] = positions[index];
         const item = element("li", "next-plan", plan);
@@ -209,7 +220,7 @@ function render(moveFocus = true) {
         links.append(line);
         plans.append(item);
       }
-      web.append(links, heart, plans);
+      web.append(links, hub, plans);
       copy.append(web);
       break;
     }

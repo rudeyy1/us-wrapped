@@ -410,8 +410,8 @@ button:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
 }
 .plans-web {
   position: relative;
-  min-height: 24rem;
-  height: min(58vh, 34rem);
+  min-height: 26rem;
+  height: min(60vh, 36rem);
 }
 .plans-web svg, .next-plans {
   position: absolute;
@@ -421,22 +421,23 @@ button:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
 }
 .plans-web svg {
   stroke: var(--ink);
-  stroke-width: 1.5;
-  opacity: .34;
+  stroke-width: 1;
+  opacity: .2;
 }
-.plans-heart {
+.plans-hub {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   display: grid;
   place-items: center;
-  width: 5.4rem;
-  aspect-ratio: 1;
-  border-radius: 50%;
+  width: max-content;
+  padding: .8rem 1.05rem;
+  border-radius: 999px;
   background: var(--accent);
   color: var(--ink);
-  font-size: 2.6rem;
+  font-size: clamp(1rem, 1.7vw, 1.6rem);
+  font-weight: 800;
   line-height: 1;
 }
 .next-plans { margin: 0; padding: 0; list-style: none; }
@@ -446,8 +447,9 @@ button:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
   top: var(--plan-y);
   transform: translate(-50%, -50%);
   width: max-content;
-  max-width: 21%;
-  padding: .6rem .9rem;
+  max-width: 13%;
+  padding: .45rem .55rem;
+  font-size: clamp(.75rem, 1.1vw, .95rem);
   border: 1px solid currentColor;
   border-radius: 1rem;
   background: color-mix(in srgb, var(--background) 85%, white);
@@ -455,10 +457,10 @@ button:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
   line-height: 1.2;
   font-weight: 650;
 }
-@media (max-width: 760px) {
+@media (max-width: 1000px) {
   .plans-web { height: auto; min-height: 0; }
   .plans-web svg { display: none; }
-  .plans-heart { position: static; transform: none; margin: 0 auto 1rem; }
+  .plans-hub { position: static; transform: none; margin: 0 auto 1rem; }
   .next-plans {
     position: static;
     display: flex;
