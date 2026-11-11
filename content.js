@@ -54,8 +54,8 @@ window.wrapped = {
     colors: ["#101B39", "#FFF0BC", "#F6D98D"],
   },
   nextYear: {
-    title: "Coming Up Next",
-    subtitle: "Year three",
+    title: "Now Year 3",
+    subtitle: "",
     plans: [
       { title: "Christmas Eve", detail: "I want to celebrate Christmas Eve together." },
       { title: "Halloween", detail: "I want us to do a couples costume." },
