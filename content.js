@@ -50,7 +50,7 @@ window.wrapped = {
   madeBetter: {
     title: "Something You Made Better",
     revealTitle: "Sleeping!!",
-    note: "",
+    note: "Since I was an elementary schooler I had trouble going to sleep on time, and in turn waking up on time. I was worried that I was going to carry that the rest of my life because it seemed like something I wasn’t meant to break; my mom didn’t have too good of a sleep schedule, and especially my brother.\n\nNow that we’re entering our third year of our relationship I couldn’t have been anymore wrong, because of you. I don’t worry about whether I’m going to get enough sleep or whether I’m going to wake up on time because I have you. Our nightly routine is something I look forward to every day and it keeps me sane.",
     colors: ["#101B39", "#FFF0BC", "#F6D98D"],
   },
   nextYear: {
