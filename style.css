@@ -319,8 +319,6 @@ button:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
 }
 @media (min-width: 901px) {
   .memory-showcase.festive .photo {
-    padding: .4rem;
-    background: #fff1dd;
     box-shadow: 0 .6rem 1.4rem #49302a35;
     transform: rotate(-2deg);
   }
