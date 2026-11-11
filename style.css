@@ -397,3 +397,25 @@ button:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
   .memory-showcase.april .media-slot:last-child { grid-column: 2; grid-row: 1 / span 2; }
   .memory-showcase.april .media-slot:not(:last-child) .photo { max-height: max(9rem, calc((100svh - 14rem) / 2)); }
 }
+
+.next-plans {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.4rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.next-plan {
+  min-width: 0;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  border: 1px solid currentColor;
+  border-radius: .75rem;
+  background: color-mix(in srgb, var(--background) 88%, white);
+}
+.next-plan h2 { margin: 0; font-size: clamp(1.2rem, 2vw, 1.7rem); }
+.next-plan p { margin: .5rem 0 0; line-height: 1.45; }
+.next-letter { min-height: 5rem; margin-top: 1rem; }
+@media (max-width: 760px) {
+  .next-plans { grid-template-columns: 1fr; }
+}

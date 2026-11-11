@@ -56,7 +56,12 @@ window.wrapped = {
   nextYear: {
     title: "Coming Up Next",
     subtitle: "Year three",
-    idea: "",
+    plans: [
+      { title: "Christmas Eve", detail: "I want to celebrate Christmas Eve together." },
+      { title: "Halloween", detail: "I want us to do a couples costume." },
+      { title: "Valentine’s Day", detail: "I want to come visit over your three-day weekend. We can keep it simple and spend time together." },
+    ],
+    letter: "",
     colors: ["#EBC9C7", "#614035", "#8A9378"],
   },
 };

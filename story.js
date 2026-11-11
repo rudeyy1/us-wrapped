@@ -180,10 +180,17 @@ function render(moveFocus = true) {
       copy.append(reveal);
       break;
     }
-    case "nextYear":
+    case "nextYear": {
       appendText(copy, "subtitle", content.subtitle);
-      copy.append(element("div", "copy writing-space teaser", content.idea));
+      const plans = element("ul", "next-plans");
+      for (const plan of content.plans ?? []) {
+        const card = element("li", "next-plan");
+        card.append(element("h2", "", plan.title), element("p", "", plan.detail));
+        plans.append(card);
+      }
+      copy.append(plans, element("div", "copy writing-space next-letter", content.letter ?? content.idea));
       break;
+    }
   }
 
   stage.replaceChildren(panel);
