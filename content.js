@@ -20,11 +20,11 @@ window.wrapped = {
   },
   song: {
     title: "That One Song",
-    songTitle: "James — Laufey",
+    songTitle: "",
     video: "ddd.MOV",
     sidePhoto: "JamesCar.JPEG",
     spotifyCode: "laufey-james-spotify.png", // Filename of the Spotify code image in photos/.
-    memory: "",
+    memory: "James by Laufey",
     photo: "laufey-typical-of-me.png",
     colors: ["#8A9378", "#342119", "#F8D6DE"],
   },
