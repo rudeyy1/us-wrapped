@@ -62,6 +62,7 @@ function render(moveFocus = true) {
   const isFront = revealIndex < 0 && key !== "cover";
   const hasCustomLayout = !isFront && ["song", "favorites", "gallery", "madeBetter", "nextYear"].includes(key);
   const panel = element("section", isFront ? "panel front" : hasCustomLayout ? "panel detail" : "panel");
+  if (key === "nextYear") panel.classList.add("next-year-panel");
   if (key === "madeBetter") panel.classList.add("sleep-panel");
   if (key === "favorites" && !isFront) panel.classList.add("memory-panel");
   const body = element("div", "panel-body");
@@ -69,7 +70,7 @@ function render(moveFocus = true) {
   let title = content.title;
   if (!isFront && key === "favorites") title = content.memories[revealIndex].title || title;
   if (!isFront && key === "madeBetter") title = content.revealTitle || title;
-  const heading = element("h1", "", title);
+  const heading = element("h1", key === "nextYear" ? "next-year-heading" : "", title);
   heading.tabIndex = -1;
   const marker = key === "favorites" && revealIndex >= 0
     ? `Memory ${revealIndex + 1} / ${content.memories.length}`
@@ -181,14 +182,35 @@ function render(moveFocus = true) {
       break;
     }
     case "nextYear": {
-      appendText(copy, "subtitle", content.subtitle);
+      const web = element("div", "plans-web");
+      const links = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      links.setAttribute("viewBox", "0 0 100 100");
+      links.setAttribute("preserveAspectRatio", "none");
+      links.setAttribute("aria-hidden", "true");
+      const heart = element("span", "plans-heart", "♥");
+      heart.setAttribute("aria-hidden", "true");
       const plans = element("ul", "next-plans");
-      for (const plan of content.plans ?? []) {
-        const card = element("li", "next-plan");
-        card.append(element("h2", "", plan.title), element("p", "", plan.detail));
-        plans.append(card);
+      plans.setAttribute("role", "list");
+      const positions = [
+        [24, 9], [50, 9], [76, 9], [88, 25], [89, 43], [89, 62], [86, 80],
+        [74, 92], [50, 92], [25, 92], [12, 74], [11, 53], [12, 31],
+      ];
+      for (const [index, plan] of content.plans.entries()) {
+        const [x, y] = positions[index];
+        const item = element("li", "next-plan", plan);
+        item.style.setProperty("--plan-x", x + "%");
+        item.style.setProperty("--plan-y", y + "%");
+        const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        line.setAttribute("x1", "50");
+        line.setAttribute("y1", "50");
+        line.setAttribute("x2", x);
+        line.setAttribute("y2", y);
+        line.setAttribute("vector-effect", "non-scaling-stroke");
+        links.append(line);
+        plans.append(item);
       }
-      copy.append(plans);
+      web.append(links, heart, plans);
+      copy.append(web);
       break;
     }
   }
