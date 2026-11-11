@@ -415,7 +415,6 @@ button:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
 }
 .next-plan h2 { margin: 0; font-size: clamp(1.2rem, 2vw, 1.7rem); }
 .next-plan p { margin: .5rem 0 0; line-height: 1.45; }
-.next-letter { min-height: 5rem; margin-top: 1rem; }
 @media (max-width: 760px) {
   .next-plans { grid-template-columns: 1fr; }
 }

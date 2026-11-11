@@ -188,7 +188,7 @@ function render(moveFocus = true) {
         card.append(element("h2", "", plan.title), element("p", "", plan.detail));
         plans.append(card);
       }
-      copy.append(plans, element("div", "copy writing-space next-letter", content.letter ?? content.idea));
+      copy.append(plans);
       break;
     }
   }
